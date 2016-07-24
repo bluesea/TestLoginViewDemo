@@ -14,6 +14,9 @@ import {
   Image
 } from 'react-native';
 
+var Dimensions = require('Dimensions');
+var {width,height} = Dimensions.get('window');
+
 class TestView extends Component {
   render() {
     return (
@@ -74,7 +77,7 @@ const styles = StyleSheet.create({
   loginBtnStyle: {
     height:35,
     backgroundColor:'blue',
-    width:390,
+    width:width*0.9,
     marginTop:50,
     marginBottom:20,
     justifyContent:'center',
@@ -87,7 +90,7 @@ const styles = StyleSheet.create({
     // backgroundColor:'green',
     //设置主轴对齐方式
     justifyContent:'space-between',
-    width:390,
+    width:width*0.9,
     height:25
   },
   otherLoginStyle: {
