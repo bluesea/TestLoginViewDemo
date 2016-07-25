@@ -4,22 +4,30 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 import {
   AppRegistry,
   StyleSheet,
   Text,
   View,
   TextInput,
-  Image
+  Image,
+  TouchableOpacity,
+  AlertIOS
 } from 'react-native';
 
 var Dimensions = require('Dimensions');
-var {width,height} = Dimensions.get('window');
+var {
+  width,
+  height
+} = Dimensions.get('window');
 
 class TestView extends Component {
   render() {
     return (
+
       <View style={styles.container}>
          {/*头像*/}
          <Image source={require('./img/icon.png')} style = {styles.iconStyle} />
@@ -28,7 +36,9 @@ class TestView extends Component {
          <TextInput placeholder={'请输入密码'} password={true} style = {styles.textInputStyle} />
          {/*登录*/}
          <View style={styles.loginBtnStyle}>
-            <Text style={{color:'white'}}>登录</Text>
+            <TouchableOpacity activityOpacity={0.2} onPress={this.renderPress()}>
+              <Text style={{color:'white'}}>登录</Text>
+            </TouchableOpacity>
          </View>
          {/*设置*/}
          <View style={styles.settingStyle}>
@@ -45,63 +55,66 @@ class TestView extends Component {
       </View>
     );
   }
+  renderPress() {
+    AlertIOS.alert('test');
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#dddddd',
-    alignItems:'center',
+    alignItems: 'center',
   },
   iconStyle: {
-    width:80,
-    height:80,
-    borderRadius:40,
-    borderColor:'white',
-    borderWidth:2,
-    marginTop:50,
-    marginBottom:30,
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    borderColor: 'white',
+    borderWidth: 2,
+    marginTop: 50,
+    marginBottom: 30,
   },
   otherImageStyle: {
-    width:50,
-    height:50,
-    borderRadius:25,
-    marginLeft:8,
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    marginLeft: 8,
   },
   textInputStyle: {
-    height:38,
-    backgroundColor:'white',
-    marginBottom:1,
-    textAlign:'center'
+    height: 38,
+    backgroundColor: 'white',
+    marginBottom: 1,
+    textAlign: 'center'
   },
   loginBtnStyle: {
-    height:35,
-    backgroundColor:'blue',
-    width:width*0.9,
-    marginTop:50,
-    marginBottom:20,
-    justifyContent:'center',
-    alignItems:'center',
-    borderRadius:8,
+    height: 35,
+    backgroundColor: 'blue',
+    width: width * 0.9,
+    marginTop: 50,
+    marginBottom: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 8,
   },
   settingStyle: {
     //设置主轴方向
-    flexDirection:'row',
+    flexDirection: 'row',
     // backgroundColor:'green',
     //设置主轴对齐方式
-    justifyContent:'space-between',
-    width:width*0.9,
-    height:25
+    justifyContent: 'space-between',
+    width: width * 0.9,
+    height: 25
   },
   otherLoginStyle: {
     //设置主轴方向
-    flexDirection:'row',
-    alignItems:'center',
+    flexDirection: 'row',
+    alignItems: 'center',
 
     //绝对定位
-    position:'absolute',
-    bottom:10,
-    left:20,
+    position: 'absolute',
+    bottom: 10,
+    left: 20,
   }
 
 
